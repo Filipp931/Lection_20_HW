@@ -17,11 +17,6 @@ public class MainController {
         this.cache = cache;
     }
 
-    @GetMapping("/")
-    public String main(){
-        return "main.html";
-    }
-
     @GetMapping("/download")
     @ResponseBody
     public ResponseEntity<Object> download(@RequestParam URL url){

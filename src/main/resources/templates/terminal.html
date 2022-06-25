@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Terminal</title>
+</head>
+<body>
+<h1>Terminal</h1>
+<label>Balance:</label><p>
+<input type="number" th:field="*{balance}" /><p>
+<form action="#" th:action="@{/terminal/withdraw}" method="GET">
+
+    <span style="color: red" th:if="${message != null}" th:text="${message}"> </span>
+    <p><input type="submit" value="Check" />
+</form>
+
+</body>
+</html>

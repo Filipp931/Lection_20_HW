@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Pin</title>
+</head>
+<body>
+<h1>PIN:</h1>
+<form action="#" th:action="@{/terminal/pin}" method="GET">
+    <input type="text" name =pin /><p>
+    <span style="color: red" th:if="${incorrect == true}" th:text="${message}"> </span>
+    <span style="color: red" th:if="${locked == true}" th:text="${message}"> </span>
+    <p><input type="submit" value="Check" />
+</form>
+
+</body>
+</html>
