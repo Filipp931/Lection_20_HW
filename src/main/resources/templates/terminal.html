@@ -1,17 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Terminal</title>
 </head>
 <body>
 <h1>Terminal</h1>
-<label>Balance:</label><p>
-<input type="number" th:field="*{balance}" /><p>
+<form >
+    <label>Balance:</label>
+    <span th:text="${balance}"></span>
+    <p><span style="color: red" th:if="${message != null}" th:text="${message}"> </span>
+</form>
 <form action="#" th:action="@{/terminal/withdraw}" method="GET">
-
-    <span style="color: red" th:if="${message != null}" th:text="${message}"> </span>
-    <p><input type="submit" value="Check" />
+    <label for="withdraw">Withdraw: </label>
+    <input type="withdraw" name=withdraw id="withdraw"/>
+    <input type="submit" value="Withdraw" />
+</form><p>
+<form action="#" th:action="@{/terminal/deposit}" method="GET">
+    <label for="deposit">Deposit: </label>
+    <input type="deposit" name=deposit id="deposit"/>
+    <input type="submit" value="Deposit" />
 </form>
 
 </body>

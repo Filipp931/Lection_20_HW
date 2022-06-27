@@ -44,13 +44,25 @@ public class TerminalController {
     }
 
     @GetMapping("/withdraw")
-    public String withdraw(@RequestParam int sum, Model model) throws PinIsNotValidatedException {
+    public String withdraw(@RequestParam int withdraw, Model model) throws PinIsNotValidatedException {
         try {
-            terminal.withdraw(sum);
+            terminal.withdraw(withdraw);
         } catch (IncorrectSumException|NotEnoughMoneyException e) {
             model.addAttribute("message", e.getMessage());
         }
-        return "redirect:";
+        model.addAttribute("balance", terminal.getBalance());
+        return "terminal.html";
+    }
+
+    @GetMapping("/deposit")
+    public String deposit(@RequestParam int deposit, Model model) throws PinIsNotValidatedException {
+        try {
+            terminal.deposit(deposit);
+        } catch (IncorrectSumException e) {
+            model.addAttribute("message", e.getMessage());
+        }
+        model.addAttribute("balance", terminal.getBalance());
+        return "terminal.html";
     }
 
 
